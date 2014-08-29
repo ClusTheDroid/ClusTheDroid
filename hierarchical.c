@@ -355,7 +355,7 @@ EfficientHierarchicalClustering(Node clusters[], int size,
 				double (*sim)(Node *node_1, Node *node_2),
 				double (*linkage)(int, int, int, Node**, Node *),
 				hashtable_t *statistics,
-				FeatureSet *(*_calculate_merged_features)(int k1, int k2, Node clusters[]), int unknown)
+				FeatureSet *(*_calculate_merged_features)(int k1, int k2, Node clusters[]), int unknown, int merge_stop)
 {
 	int unknown_malware = unknown;
 
@@ -450,7 +450,7 @@ EfficientHierarchicalClustering(Node clusters[], int size,
 				printf("%d\t%f\t%f\t%f\t%f\t%d\n", k, max_prior, precision, recall, c_index, activeClusters);
 				old_sim = max_prior;
 			}
-			if(k == 12194 || k == 12174)
+			if(k == merge_stop)
 			{
 				int i = 1;
 				int n = 1;
@@ -459,7 +459,7 @@ EfficientHierarchicalClustering(Node clusters[], int size,
 				{
 					if(active[i]) 
 					{
-						printf("\\textbf{cluster:%d} [", n);
+						printf("cluster:%d [", n);
 						_print_cluster(&clusters[i]);
 						printf("]\n");
 						n++;

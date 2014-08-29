@@ -31,5 +31,5 @@ EfficientHierarchicalClustering(Node clusters[], int size,
                                 double (*sim)(Node *node_1, Node *node_2),
                                 double (*linkage)(int, int, int, Node**, Node *),
                                 hashtable_t *statistics,
-                                FeatureSet *(*_calculate_merged_features)(int k1, int k2, Node clusters[]), int unknown);
+                                FeatureSet *(*_calculate_merged_features)(int k1, int k2, Node clusters[]), int unknown, int merge_stop);
 

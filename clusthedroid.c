@@ -8,7 +8,7 @@
 static int unknown_malware;
 static int linkage;
 static char *jsons;
-
+static int merge_stop = -1;
 
 
 
@@ -327,6 +327,11 @@ parse_arguments(int argc, char **argv)
 				printf("Unknown malware\n");
 				unknown_malware = 1;
 			}
+			else if(strcmp("-k", argv[i]) == 0)
+			{
+				merge_stop = atoi(argv[i+1]);
+				printf("merge_stop: %d\n", merge_stop);	
+			}
 		}
 	}	
 }
@@ -360,8 +365,9 @@ main(int argc, char **argv)
 	
 	// Perform clustering
 	printf("Starting HAC\n");
+
 	start = clock();
-	EfficientHierarchicalClustering(nodes, size, SimilarityScore, linkageFunction, hashtable, _calculate_merged_featureset, unknown_malware);
+	EfficientHierarchicalClustering(nodes, size, SimilarityScore, linkageFunction, hashtable, _calculate_merged_featureset, unknown_malware, merge_stop);
 	end = clock();
 	return 1;	
 }

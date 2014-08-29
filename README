@@ -1,12 +1,12 @@
 ****ClusTheDroid****
 
-[+] Installation
+[+] Installation [+]
 In order to install ClusTheDroid, you need the JSMN libary for parsing json files. 
 When this is acquired, edit the "JSMN" variable in the makefile to the source of 
 where your libsjmn.a is located. After this, simply run "make install" and ClusTheDroid will get installed.
 
 
-[+] Usage
+[+] Usage [+]
 The application is intended to be run with the following commands:
 
 "-l" defines the linkage criteria for the clustering. There are two options:
