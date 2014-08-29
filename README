@@ -19,3 +19,5 @@ be used in the following way:
 
 By specifying the option "-u" ClusTheDroid will only calculate the C-index of the clustering. 
 
+"-k" causes ClusTheDroid to print the clusters of a given merge. This can be used in the following way:
+"-k 235" will print the clusters at the  235th merge. 
